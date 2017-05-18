@@ -49,6 +49,45 @@ class Person extends FollowUpBossModel
 
     }
 
+    /**
+     * Update the person
+     * @param $tag
+     */
+    public function addTag($tag)
+    {
+
+        array_push($this->data['tags'], $tag);
+
+        $this->update(['tags' => $this->data['tags']]);
+    }
+
+    /**
+     * Removes a tag
+     * @param $tag
+     */
+    public function removeTag($tag)
+    {
+
+        if (($key = array_search($tag, $this->data['tags'])) !== false) {
+            unset($this->data['tags'][$key]);
+        }
+
+        $this->update(['tags' => $this->data['tags']]);
+
+
+    }
+
+    /**
+     * Removes all the tags from the person
+     */
+    public function removeAllTags()
+    {
+
+        $this->data['tags'] = [];
+
+        $this->update(['tags' => $this->data['tags']]);
+
+    }
 
     /**
      * Return the data array associated with this user
