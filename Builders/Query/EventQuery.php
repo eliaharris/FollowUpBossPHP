@@ -8,8 +8,7 @@
  */
 
 namespace App\FollowUpBoss\Builders\Query;
-
-use App\FollowUpBoss\EventsAPI;
+use App\FollowUpBoss\Api\EventsAPI;
 
 /**
  * Allows a user to query for a specific event in their system

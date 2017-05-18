@@ -59,6 +59,35 @@ abstract class Query
 
 
     /**
+     * Sets the offset for this query
+     * @param $offset
+     * @return $this
+     */
+    public function whereOffset($offset)
+    {
+
+        $this->queryData['offset'] = $offset;
+
+        return $this;
+
+    }
+
+    /**
+     * Sets the limit for the query
+     * @param $limit
+     * @return $this
+     */
+    public function whereLimit($limit)
+    {
+
+        $this->queryData['limit'] = $limit;
+
+        return $this;
+
+    }
+
+
+    /**
      * Function that will do numerous things before a query is actually called
      */
     private function beforeQuery()

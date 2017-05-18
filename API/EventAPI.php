@@ -6,7 +6,9 @@
  * Time: 7:43 PM
  */
 
-namespace App\FollowUpBoss;
+namespace App\FollowUpBoss\Api;
+
+use App\FollowUpBoss\FollowUpBoss;
 
 
 /**

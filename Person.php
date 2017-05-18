@@ -2,7 +2,11 @@
 
 namespace App\FollowUpBoss;
 
+use App\FollowUpBoss\Api\ActionPlansPeople;
+use App\FollowUpBoss\Api\NotesAPI;
+use App\FollowUpBoss\Api\PersonAPI;
 use App\FollowUpBoss\Builders\Model\FollowUpBossModel;
+use App\FollowUpBoss\Builders\Query\ActionPlanPeopleQuery;
 use App\FollowUpBoss\Builders\Query\EventQuery;
 use App\FollowUpBoss\Builders\Query\NoteQuery;
 
@@ -103,15 +107,6 @@ class Person extends FollowUpBossModel
     }
 
 
-
-    /** Return the ID of the user
-     * @return string
-     */
-    public function getId()
-    {
-        return $this->data['id'];
-    }
-
     /**
      * Return the email of the user
      * @return string
@@ -209,6 +204,18 @@ class Person extends FollowUpBossModel
 
 
     }
+
+    /**
+     * Return all the events associated with the user
+     */
+    public function ActionPlans()
+    {
+
+        return (new ActionPlanPeopleQuery(['personId' => $this->getId()]));
+
+
+    }
+
 
     /**
      * This is a non-reversible

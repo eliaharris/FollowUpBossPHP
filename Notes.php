@@ -18,21 +18,10 @@ class Notes
      * Get a query that will start the process of querying
      * @return NoteQuery
      */
-    public static function query()
+    public function query()
     {
 
         return (new NoteQuery());
-
-    }
-
-    /**
-     * @param array $data
-     * @return mixed
-     */
-    public static function create($data = [])
-    {
-
-        return (new NoteQuery())->create($data);
 
     }
 

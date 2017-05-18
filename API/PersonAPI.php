@@ -3,19 +3,23 @@
  * Created by IntelliJ IDEA.
  * User: eliaharris
  * Date: 5/14/17
- * Time: 7:40 PM
+ * Time: 6:49 PM
  */
 
-namespace App\FollowUpBoss;
+namespace App\FollowUpBoss\Api;
 
 
-class NoteAPI extends FollowUpBoss
+use App\FollowUpBoss\FollowUpBoss;
+use App\FollowUpBoss\Person;
+
+class PersonAPI extends FollowUpBoss
 {
+
 
     /**
      * @param $id
      * @param $data
-     * @return Note
+     * @return Person
      */
     public function update($id, $data = [])
     {
@@ -24,7 +28,7 @@ class NoteAPI extends FollowUpBoss
         $ch = curl_init();
 
         // Set url
-        curl_setopt($ch, CURLOPT_URL, 'https://api.followupboss.com/' . $this->version . '/notes/' . $id);
+        curl_setopt($ch, CURLOPT_URL, 'https://api.followupboss.com/' . $this->version . '/people/' . $id);
 
         // Set method
         curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'PUT');
@@ -34,7 +38,7 @@ class NoteAPI extends FollowUpBoss
 
         // Set headers
         curl_setopt($ch, CURLOPT_HTTPHEADER, [
-                'Authorization: Basic '. base64_encode(FollowUpBoss::$APIKEY . ":"),
+                'Authorization: Basic ' . base64_encode(FollowUpBoss::$APIKEY . ":"),
                 "Content-Type: application/x-www-form-urlencoded; charset=utf-8",
             ]
         );
@@ -52,7 +56,7 @@ class NoteAPI extends FollowUpBoss
         // Close request to clear up some resources
         curl_close($ch);
 
-        return new Note(json_decode($resp, true));
+        return new Person(json_decode($resp, true));
 
     }
 
@@ -67,7 +71,7 @@ class NoteAPI extends FollowUpBoss
         $ch = curl_init();
 
         // Set url
-        curl_setopt($ch, CURLOPT_URL, 'https://api.followupboss.com/' . $this->version . '/notes/' . $id);
+        curl_setopt($ch, CURLOPT_URL, 'https://api.followupboss.com/' . $this->version . '/people/' . $id);
 
         // Set method
         curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'DELETE');
@@ -77,7 +81,7 @@ class NoteAPI extends FollowUpBoss
 
         // Set headers
         curl_setopt($ch, CURLOPT_HTTPHEADER, [
-                'Authorization: Basic '. base64_encode(FollowUpBoss::$APIKEY . ":"),
+                'Authorization: Basic ' . base64_encode(FollowUpBoss::$APIKEY . ":"),
                 "Content-Type: application/x-www-form-urlencoded; charset=utf-8",
             ]
         );

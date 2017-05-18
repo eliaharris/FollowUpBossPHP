@@ -28,4 +28,36 @@ class FollowUpBossModel
         return $this->data;
     }
 
+    /**
+     * Return the id of the model
+     * @return array
+     */
+    public function getId()
+    {
+
+        return $this->data;
+    }
+
+
+    /**
+     * Returns when the action plan was created
+     * @return string
+     */
+    public function getCreated()
+    {
+
+        return $this->data['created'];
+    }
+
+
+    /**
+     * Returns when the action plan was updated
+     * @return string
+     */
+    public function getUpdated()
+    {
+
+        return $this->data['updated'];
+    }
+
 }

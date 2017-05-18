@@ -8,8 +8,8 @@
  */
 
 namespace App\FollowUpBoss\Builders\Query;
+use App\FollowUpBoss\Api\PeopleAPI;
 
-use App\FollowUpBoss\PeopleAPI;
 
 /**
  * Class PersonQuery
@@ -85,34 +85,6 @@ class PersonQuery extends Query
 
     }
 
-    /**
-     * Sets the limit for this query
-     * @param int $limit
-     * @return $this
-     */
-    public function whereLimit($limit)
-    {
-
-        $this->queryData['limit'] = $limit;
-
-        return $this;
-
-    }
-
-    /**
-     * Sets the offset for this query
-     * @param int $offset
-     * @return $this
-     * @internal param $offset
-     */
-    public function whereOffset($offset)
-    {
-
-        $this->queryData['offset'] = $offset;
-
-        return $this;
-
-    }
 
     /**
      * Set the fields that will be returned when the query executes

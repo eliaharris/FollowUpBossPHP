@@ -8,6 +8,8 @@
  */
 
 namespace App\FollowUpBoss;
+
+use App\FollowUpBoss\Api\NoteAPI;
 use App\FollowUpBoss\Builders\Model\FollowUpBossModel;
 
 
@@ -36,14 +38,6 @@ class Note extends FollowUpBossModel
 
     }
 
-    /**
-     * Get the ID associated with the note
-     * @return string
-     */
-    public function getId()
-    {
-        return $this->data['id'];
-    }
 
 
     /**

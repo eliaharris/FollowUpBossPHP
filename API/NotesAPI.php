@@ -3,18 +3,22 @@
  * Created by IntelliJ IDEA.
  * User: eliaharris
  * Date: 5/14/17
- * Time: 6:49 PM
+ * Time: 7:34 PM
  */
 
-namespace App\FollowUpBoss;
+namespace App\FollowUpBoss\Api;
+
+use App\FollowUpBoss\FollowUpBoss;
+use App\FollowUpBoss\Note;
 
 
-class PeopleAPI extends FollowUpBoss
+class NotesAPI extends FollowUpBoss
 {
+
 
     /**
      * @param array $query
-     * @return Person[]
+     * @return Note[]
      */
     public function get($query = [])
     {
@@ -23,7 +27,7 @@ class PeopleAPI extends FollowUpBoss
         $ch = curl_init();
 
         // Set url
-        curl_setopt($ch, CURLOPT_URL, 'https://api.followupboss.com/' . $this->version . '/people?' . http_build_query($query));
+        curl_setopt($ch, CURLOPT_URL, 'https://api.followupboss.com/' . $this->version . '/notes?' . http_build_query($query));
 
         // Set method
         curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'GET');
@@ -46,24 +50,25 @@ class PeopleAPI extends FollowUpBoss
 
         $results = json_decode($resp, true);
 
-        $PeopleArray = array();
+        $NoteArray = array();
 
         //If the response is empty we need to return nothing
-        if ($results == null || $results['people'] == null)
+        if ($results == null || $results['notes'] == null)
             return array();
 
-        foreach ($results['people'] as $value) {
+        foreach ($results['notes'] as $value) {
 
-            array_push($PeopleArray, new Person($value));
+            array_push($NoteArray, new Note($value));
         }
 
-        return $PeopleArray;
+        return $NoteArray;
 
     }
 
+
     /**
      * @param array $data
-     * @return Person
+     * @return Note
      */
     public function create($data = [])
     {
@@ -72,7 +77,7 @@ class PeopleAPI extends FollowUpBoss
         $ch = curl_init();
 
         // Set url
-        curl_setopt($ch, CURLOPT_URL, 'https://api.followupboss.com/' . $this->version . '/events');
+        curl_setopt($ch, CURLOPT_URL, 'https://api.followupboss.com/' . $this->version . '/notes');
 
         // Set method
         curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'POST');
@@ -103,7 +108,7 @@ class PeopleAPI extends FollowUpBoss
 
         curl_close($ch);
 
-        return new Person($data);
+        return new Note($data);
 
 
     }

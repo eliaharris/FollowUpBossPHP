@@ -7,8 +7,8 @@
  */
 
 namespace App\FollowUpBoss\Builders\Query;
+use App\FollowUpBoss\Api\NotesAPI;
 
-use App\FollowUpBoss\NotesAPI;
 
 /**
  * This builder allows for notes to be build with a unique builder. Easy access to change attributes.
@@ -19,10 +19,11 @@ class NoteQuery extends Query
 {
     /**
      * Specify all the possible fields for this query
+     * 'personID' => '', 'offset' => '', 'limit' => ''
      * @var array
      */
 
-    protected $queryData = ['personID' => '', 'offset' => '', 'limit' => ''];
+    protected $queryData = [];
 
 
     /**
@@ -53,33 +54,5 @@ class NoteQuery extends Query
 
     }
 
-
-    /**
-     * Sets the offset for this query
-     * @param $offset
-     * @return $this
-     */
-    public function whereOffset($offset)
-    {
-
-        $this->queryData['offset'] = $offset;
-
-        return $this;
-
-    }
-
-    /**
-     * Sets the limit for the query
-     * @param $limit
-     * @return $this
-     */
-    public function whereLimit($limit)
-    {
-
-        $this->queryData['limit'] = $limit;
-
-        return $this;
-
-    }
 
 }

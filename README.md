@@ -14,4 +14,5 @@ $notes =  $people[0]->Notes()->whereLimit(10)->get();
 /* Grab all the events of a user */
 
 $events = $people[0]->Events()->get(); 
+
 ```
