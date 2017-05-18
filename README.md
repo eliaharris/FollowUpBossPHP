@@ -1,8 +1,8 @@
 # FollowUpBossPHP
 
+```
 FollowUpBoss::$APIKEY = "Key Goes Here";
 
-```
 /* Query base on all the available parameters Follow Up Boss supplies */
 
 $people = (new PersonQuery())->whereStage("Lead")->whereContacted(true)->get();
