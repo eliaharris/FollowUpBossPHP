@@ -74,6 +74,19 @@ class Person extends FollowUpBossModel
 
         $this->update(['tags' => $this->data['tags']]);
 
+    }
+
+
+    /**
+     * Updates the stage of the user
+     * @param $stage
+     */
+    public function setStage($stage)
+    {
+
+        $this->data['stage'] = $stage;
+
+        $this->update(['stage' => $this->data['stage']]);
 
     }
 
@@ -89,15 +102,7 @@ class Person extends FollowUpBossModel
 
     }
 
-    /**
-     * Return the data array associated with this user
-     * @return array
-     */
-    public function getData()
-    {
 
-        return $this->data;
-    }
 
     /** Return the ID of the user
      * @return string

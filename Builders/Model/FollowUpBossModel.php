@@ -18,4 +18,14 @@ class FollowUpBossModel
 
     protected $data = [];
 
+    /**
+     * Return the data array associated with this user
+     * @return array
+     */
+    public function getData()
+    {
+
+        return $this->data;
+    }
+
 }

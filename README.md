@@ -1,5 +1,7 @@
 # FollowUpBossPHP
 
+FollowUpBoss::$APIKEY = "Key Goes Here";
+
 ```
 /* Query base on all the available parameters Follow Up Boss supplies */
 
